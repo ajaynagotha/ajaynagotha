@@ -2,7 +2,7 @@
 
 ## 🚀 React.js Developer | AI Enthusiast | Open Source Contributor
 
-Passionate full-stack developer specializing in modern web technologies and AI integration. Building scalable, future-ready applications with a focus on performance, security, and exceptional user experiences.
+Passionate frontend developer specializing in modern web technologies and AI integration. Building scalable, future-ready applications with a focus on performance, security, and exceptional user experiences.
 
 ---
 

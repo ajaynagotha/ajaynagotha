@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay Nagotha - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+            font-size: 14px;
+        }
+
+        .resume-container {
+            max-width: 8.5in;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-height: 11in;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 40px 50px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Professional Summary */
+        .summary-content {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .summary-intro {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .summary-item {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #e74c3c;
+        }
+
+        .summary-item h4 {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .summary-item p {
+            color: #5a6c7d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Education */
+        .education-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .university {
+            font-size: 1.1rem;
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        /* Experience Items */
+        .experience-item {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border: 1px solid #ecf0f1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-weight: 600;
+            color: #3498db;
+            font-size: 1.05rem;
+            margin-bottom: 3px;
+        }
+
+        .location {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .duration {
+            background: #34495e;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .responsibilities {
+            list-style: none;
+            padding: 0;
+        }
+
+        .responsibilities li {
+            position: relative;
+            padding: 8px 0 8px 20px;
+            color: #5a6c7d;
+            line-height: 1.5;
+        }
+
+        .responsibilities li::before {
+            content: '•';
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid #ecf0f1;
+            overflow: hidden;
+        }
+
+        .project-header {
+            background: #34495e;
+            color: white;
+            padding: 25px 30px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .project-type {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .project-content {
+            padding: 25px 30px;
+        }
+
+        .tech-stack {
+            background: #ecf0f1;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .tech-stack strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .project-url {
+            background: #d5f4e6;
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+            font-size: 0.95rem;
+        }
+
+        .project-url strong {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #ecf0f1;
+        }
+
+        .skill-category h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f8f9fa;
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .skill-level {
+            background: #3498db;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Awards */
+        .award-item {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            margin-bottom: 15px;
+        }
+
+        .award-title {
+            font-weight: 700;
+            color: #e67e22;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .award-description {
+            color: #5a6c7d;
+            line-height: 1.6;
+        }
+
+        /* Certifications */
+        .cert-item {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 8px;
+            border-left: 4px solid #9b59b6;
+            margin-bottom: 15px;
+            border: 1px solid #ecf0f1;
+        }
+
+        .cert-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .cert-description {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        /* Open Source */
+        .opensource-card {
+            background: #e8f5e8;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .opensource-title {
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .opensource-description {
+            color: #5a6c7d;
+            line-height: 1.6;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                font-size: 12px;
+            }
+
+            .resume-container {
+                max-width: none;
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+            }
+
+            .header {
+                background: #2c3e50 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .content {
+                padding: 30px 40px;
+            }
+
+            .section {
+                margin-bottom: 25px;
+            }
+
+            .experience-item,
+            .project-card,
+            .skill-category {
+                break-inside: avoid;
+                margin-bottom: 20px;
+            }
+
+            .project-header {
+                background: #34495e !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .summary-content,
+            .education-item,
+            .award-item,
+            .cert-item,
+            .opensource-card {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .tech-stack,
+            .project-url {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .section-title {
+                color: #2c3e50 !important;
+                border-bottom: 2px solid #3498db !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .duration,
+            .skill-level {
+                background: #34495e !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .resume-container {
+                margin: 10px;
+                max-width: none;
+            }
+
+            .header,
+            .content {
+                padding: 30px 25px;
+            }
+
+            .name {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+
+            .title {
+                font-size: 1.1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .job-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header,
+            .content {
+                padding: 25px 20px;
+            }
+
+            .name {
+                font-size: 1.8rem;
+            }
+
+            .experience-item,
+            .project-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1 class="name">AJAY NAGOTHA</h1>
+            <p class="title">React.js Developer</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">✉</span>
+                    <span>ajaynagotha44@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <span>+91 8758756334</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Surat, Gujarat, India</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">💼</span>
+                    <span>linkedin.com/in/ajay-nagotha</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🔗</span>
+                    <span>github.com/ajaynagotha</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Professional Summary -->
+            <section class="section">
+                <h2 class="section-title">Professional Summary</h2>
+                <div class="summary-content">
+                    <p class="summary-intro">Passionate Full-Stack Developer specializing in web technologies and AI integration. Committed to building scalable applications with a focus on performance, security, and user experience.</p>
+                    
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <h4>Technical Excellence</h4>
+                            <p>React.js, Next.js, Node.js, Docker, API integration and performance optimization</p>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <h4>Education Background</h4>
+                            <p>Computer Engineering graduate, Gujarat Technological University</p>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <h4>Development & Deployment</h4>
+                            <p>Transform complex requirements into intuitive web apps. Proficient in Docker and CI/CD for smooth deployments.</p>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <h4>Open Source Impact</h4>
+                            <p>Contributor to the A2A Protocol JavaScript library. Enhancing AI standards in projects supported by 100+ companies.</p>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <h4>AI-Driven Innovation</h4>
+                            <p>Building secure, AI-powered web applications. Integrating AI solutions for productivity and efficiency.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="degree">Bachelor of Engineering (B.E.) - Computer Engineering</div>
+                    <div class="university">Gujarat Technological University</div>
+                </div>
+            </section>
+
+            <!-- Professional Experience -->
+            <section class="section">
+                <h2 class="section-title">Professional Experience</h2>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div class="job-info">
+                            <div class="job-title">React.js Developer</div>
+                            <div class="company">Appscrip</div>
+                            <div class="location">Surat, Gujarat, India</div>
+                        </div>
+                        <div class="duration">April 2023 - Present</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Managing frontend development team of 6-7 members to deliver new features</li>
+                        <li>Guiding team members with development issues and conducting code reviews</li>
+                        <li>Performance and page speed optimization for better user experience</li>
+                        <li>Managing CI/CD pipelines using Git and AWS for efficient deployment</li>
+                        <li>Improving overall user experience of products through strategic enhancements</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div class="job-info">
+                            <div class="job-title">Jr. Software Engineer - React.js</div>
+                            <div class="company">Krish TechnoLabs</div>
+                            <div class="location">Ahmedabad, Gujarat, India</div>
+                        </div>
+                        <div class="duration">January 2022 - March 2023</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Developing complete frontend using React.js and design frameworks like Materialize or Bootstrap</li>
+                        <li>Building functionalities with React.js and Redux for state management</li>
+                        <li>API integration for application data and GraphQL API integration</li>
+                        <li>Third-party integrations including Firebase, WebSocket, messaging, and payments</li>
+                        <li>Managing Git repositories and tracking tasks in JIRA</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div class="job-info">
+                            <div class="job-title">Software Development Engineer - Level 1</div>
+                            <div class="company">Rao Information Technology Pvt. Ltd.</div>
+                            <div class="location">Rajkot, Gujarat, India</div>
+                        </div>
+                        <div class="duration">July 2021 - January 2022</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Designing and setting up databases in MongoDB/Firebase</li>
+                        <li>Developing application frontend using React.js, Vue.js, React Native</li>
+                        <li>Developing APIs in Node.js and API integration</li>
+                        <li>Testing applications and improving performance</li>
+                        <li>Setting up CI/CD pipelines for automated deployment</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div class="job-info">
+                            <div class="job-title">Trainee MERN Stack Developer</div>
+                            <div class="company">Novice</div>
+                            <div class="location">Rajkot, Gujarat, India</div>
+                        </div>
+                        <div class="duration">January 2021 - June 2021</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Gaining hands-on experience in MERN stack development</li>
+                        <li>Learning full-stack development principles and best practices</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Featured Projects -->
+            <section class="section">
+                <h2 class="section-title">Featured Projects</h2>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">A2A Protocol</div>
+                        <div class="project-type">Open Source - Google-Initiated, Linux Foundation Managed</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="tech-stack">
+                            <strong>Tech Stack:</strong> JavaScript, TypeScript, Node.js
+                        </div>
+                        <div class="project-url">
+                            <strong>Project URL:</strong> https://a2a-protocol.org/dev/
+                        </div>
+                        <p>Frequent contributor to the a2a-js repository of the A2A (Agent-to-Agent) Protocol—an open standard that enables AI agents to discover capabilities, securely exchange information, and collaborate on complex tasks. Backed by 100+ companies including AWS and Cisco, the project was initiated by Google and is now managed by the Linux Foundation. My contributions focus on fixing user-raised issues and enhancing the JavaScript implementation to improve robustness and developer experience.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">AI-Powered Web Testing & Performance Optimization Tool</div>
+                        <div class="project-type">Full-Stack Development</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="tech-stack">
+                            <strong>Tech Stack:</strong> JavaScript, Next.js, React.js, TypeScript, Node.js
+                        </div>
+                        <div class="project-url">
+                            <strong>Live Demo:</strong> https://nextgenwebai.vercel.app/
+                        </div>
+                        <ul class="responsibilities">
+                            <li>Advanced AI system for automatic comprehensive test case creation</li>
+                            <li>Intelligent UI adaptation ensuring robust and reliable testing over time</li>
+                            <li>AI-powered SEO optimization with in-depth analysis and actionable insights</li>
+                            <li>Features: AI-powered keyword optimization, advanced content analysis, technical SEO recommendations</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Skills -->
+            <section class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Core Technologies</h4>
+                        <div class="skill-item">
+                            <span class="skill-name">React.js</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Next.js</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">TypeScript</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Node.js</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Docker</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Additional Technologies</h4>
+                        <div class="skill-item">
+                            <span class="skill-name">Package Management</span>
+                            <span class="skill-level">npm</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Version Control</span>
+                            <span class="skill-level">Git, GitHub</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Databases</span>
+                            <span class="skill-level">MongoDB, Firebase</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Cloud Platforms</span>
+                            <span class="skill-level">AWS</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Other Technologies</span>
+                            <span class="skill-level">GraphQL, Redux</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Languages</span>
+                            <span class="skill-level">English</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Awards & Achievements -->
+            <section class="section">
+                <h2 class="section-title">Awards & Achievements</h2>
+                <div class="award-item">
+                    <div class="award-title">1st Prize - Smart Gujarat For New India Hackathon (State Level)</div>
+                    <div class="award-description">
+                        Awarded 1st prize in State Level Hackathon (Smart Gujarat For New India Hackathon). Played vital role as React.JS developer, responsible for front-end development & API integration.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section class="section">
+                <h2 class="section-title">Certifications</h2>
+                
+                <div class="cert-item">
+                    <div class="cert-title">C++/Java Spoken Tutorial</div>
+                    <div class="cert-description">Certification for proficiency in C++ and Java programming languages</div>
+                </div>
+                
+                <div class="cert-item">
+                    <div class="cert-title">Smart Gujarat for New India Hackathon</div>
+                    <div class="cert-description">Certification for participation in the Smart Gujarat for New India Hackathon</div>
+                </div>
+            </section>
+
+            <!-- Open Source Contributions -->
+            <section class="section">
+                <h2 class="section-title">Open Source Contributions</h2>
+                <div class="opensource-card">
+                    <div class="opensource-title">A2A Protocol JavaScript Library</div>
+                    <div class="opensource-description">
+                        Contributing to AI standards project supported by 100+ companies including AWS and Cisco. Enhancing JavaScript implementation for better developer experience and active involvement in issue resolution.
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

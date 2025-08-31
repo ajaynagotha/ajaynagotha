@@ -393,9 +393,15 @@
 
         /* Print Styles */
         @media print {
+            @page {
+                margin: 0.5in;
+                size: letter;
+            }
+
             body {
                 background: white;
-                font-size: 12px;
+                font-size: 11px;
+                line-height: 1.4;
             }
 
             .resume-container {
@@ -403,63 +409,215 @@
                 margin: 0;
                 box-shadow: none;
                 width: 100%;
+                min-height: auto;
             }
 
             .header {
                 background: #2c3e50 !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+                padding: 25px 30px 20px;
+                page-break-after: avoid;
+            }
+
+            .name {
+                font-size: 2rem;
+                margin-bottom: 8px;
+                letter-spacing: 1px;
+            }
+
+            .title {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+
+            .contact-info {
+                gap: 20px;
+                font-size: 0.85rem;
             }
 
             .content {
-                padding: 30px 40px;
+                padding: 20px 30px;
             }
 
             .section {
-                margin-bottom: 25px;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+                padding-bottom: 4px;
+                color: #2c3e50 !important;
+                border-bottom: 1px solid #3498db !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .summary-content {
+                padding: 15px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .summary-intro {
+                font-size: 0.95rem;
+                margin-bottom: 12px;
+            }
+
+            .summary-grid {
+                gap: 12px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .summary-item {
+                padding: 12px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .summary-item h4 {
+                font-size: 0.9rem;
+                margin-bottom: 4px;
+            }
+
+            .summary-item p {
+                font-size: 0.8rem;
+            }
+
+            .education-item {
+                padding: 15px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .degree {
+                font-size: 1rem;
+            }
+
+            .university {
+                font-size: 0.9rem;
             }
 
             .experience-item,
             .project-card,
             .skill-category {
                 break-inside: avoid;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
+                page-break-inside: avoid;
+            }
+
+            .experience-item {
+                padding: 20px;
+            }
+
+            .job-title {
+                font-size: 1rem;
+            }
+
+            .company {
+                font-size: 0.9rem;
+            }
+
+            .location {
+                font-size: 0.8rem;
+            }
+
+            .duration {
+                background: #34495e !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .responsibilities li {
+                padding: 4px 0 4px 15px;
+                font-size: 0.85rem;
             }
 
             .project-header {
                 background: #34495e !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+                padding: 15px 20px;
             }
 
-            .summary-content,
-            .education-item,
-            .award-item,
-            .cert-item,
-            .opensource-card {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .project-title {
+                font-size: 1rem;
+            }
+
+            .project-type {
+                font-size: 0.8rem;
+            }
+
+            .project-content {
+                padding: 15px 20px;
             }
 
             .tech-stack,
             .project-url {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+                padding: 10px 15px;
+                margin: 10px 0;
+                font-size: 0.85rem;
             }
 
-            .section-title {
-                color: #2c3e50 !important;
-                border-bottom: 2px solid #3498db !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .skills-grid {
+                gap: 15px;
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .duration,
+            .skill-category {
+                padding: 15px;
+            }
+
+            .skill-category h4 {
+                font-size: 0.95rem;
+                margin-bottom: 12px;
+                padding-bottom: 6px;
+            }
+
+            .skill-item {
+                padding: 6px 0;
+            }
+
+            .skill-name {
+                font-size: 0.85rem;
+            }
+
             .skill-level {
-                background: #34495e !important;
+                background: #3498db !important;
                 color: white !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+                padding: 3px 8px;
+                font-size: 0.75rem;
+            }
+
+            .award-item,
+            .cert-item,
+            .opensource-card {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+
+            .award-title,
+            .cert-title,
+            .opensource-title {
+                font-size: 0.95rem;
+                margin-bottom: 6px;
+            }
+
+            .award-description,
+            .cert-description,
+            .opensource-description {
+                font-size: 0.8rem;
             }
         }
 

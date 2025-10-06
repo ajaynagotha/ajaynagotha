@@ -1,261 +1,219 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ajay Nagotha — Frontend Developer (React / Next.js)</title>
-<style>
-  /* ----------------------
-     Base / Screen Styles
-     ---------------------- */
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajay Nagotha - Resume</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root{
-    --primary: #2563eb;
-    --muted: #6b7280;
-    --bg: #f8fafc;
-    --card: #ffffff;
-    --border: #e6eefc;
-    --text: #0f172a;
-    --accent: #0ea5e9;
-    --success: #10b981;
-    --max-width: 900px;
-  }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #222;
+      padding: 20px;
+    }
 
-  * { box-sizing: border-box; -webkit-print-color-adjust: exact; }
-  html,body { height:100%; margin:0; padding:0; font-family:'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; line-height:1.45; }
-  .wrap { max-width:var(--max-width); margin:28px auto; padding:18px; }
-  .card { background:var(--card); border-radius:12px; overflow:hidden; border:1px solid var(--border); box-shadow:0 6px 18px rgba(12,40,80,0.04); }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
 
-  /* Header */
-  .header { display:flex; gap:20px; align-items:center; padding:34px; background:linear-gradient(135deg,var(--primary),#4338ca); color:#fff; }
-  .avatar { width:96px; height:96px; border-radius:12px; background:rgba(255,255,255,0.12); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:28px; border:2px solid rgba(255,255,255,0.12); }
-  .title { flex:1; min-width:0; }
-  .name { margin:0; font-size:28px; font-weight:700; letter-spacing:-0.3px; }
-  .role { margin:6px 0 14px 0; font-weight:600; opacity:0.95; }
-  .contact { display:flex; flex-wrap:wrap; gap:12px; font-size:13px; opacity:0.95; }
-  .contact a { color:#fff; text-decoration:underline; text-underline-offset:3px; }
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
 
-  /* Grid */
-  .grid { display:grid; grid-template-columns: 1fr 320px; gap:0; }
-  .main { padding:32px; border-right:1px solid var(--border); }
-  .side { background:linear-gradient(180deg,#fafbff,#f8fafc); padding:28px 28px; }
+    header h1 {
+      font-size: 28px;
+      color: #333;
+    }
 
-  /* Sections */
-  .section { margin-bottom:26px; }
-  .section-title { display:inline-block; margin:0 0 14px 0; font-size:16px; font-weight:700; border-bottom:3px solid var(--primary); padding-bottom:8px; }
-  .summary { color:var(--muted); font-size:14px; margin:0 0 12px 0; }
-  .bullets { margin:8px 0 0 0; padding:0; list-style:none; color:var(--muted); }
-  .bullets li { margin:8px 0; padding-left:18px; position:relative; }
-  .bullets li::before { content: "▸"; position:absolute; left:0; color:var(--primary); font-weight:700; }
+    header h3 {
+      font-weight: normal;
+      color: #555;
+      margin-top: 5px;
+    }
 
-  /* Experience */
-  .job { margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--border); }
-  .job:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
-  .job h3 { margin:0 0 6px 0; font-size:15px; font-weight:700; }
-  .job-meta { font-size:13px; color:var(--muted); margin-bottom:10px; display:flex; gap:12px; flex-wrap:wrap; }
-  .responsibilities{ margin:0; padding:0; list-style:none; color:var(--muted); }
-  .responsibilities li{ margin:8px 0; padding-left:18px; position:relative; }
-  .responsibilities li::before{ content:'•'; position:absolute; left:0; color:var(--primary); font-weight:700; font-size:14px; }
+    header p {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
 
-  /* Projects, skills */
-  .project { background:#fbfdff; padding:14px; border-left:4px solid var(--primary); border-radius:8px; margin-bottom:12px; }
-  .project .tech { font-size:13px; color:var(--muted); margin:6px 0; font-weight:600; }
-  .skills { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
-  .skill { background:#fff; padding:8px 10px; border-radius:8px; font-weight:600; font-size:13px; border:1px solid var(--border); color:var(--text); }
+    section {
+      margin-bottom: 25px;
+    }
 
-  /* footer */
-  .footer { padding:18px 28px; border-top:1px solid var(--border); background:linear-gradient(90deg,#fafbff,#fff); text-align:center; color:var(--muted); font-size:13px; }
+    h2 {
+      font-size: 18px;
+      color: #222;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
 
-  /* Responsive */
-  @media (max-width: 920px) {
-    .grid { grid-template-columns:1fr; }
-    .main { border-right:none; border-bottom:1px solid var(--border); }
-    .header { flex-direction:column; text-align:center; gap:14px; padding:24px; }
-    .avatar{ width:84px;height:84px;font-size:26px; }
-    .side{ padding:20px; }
-    .main{ padding:20px; }
-  }
+    ul {
+      list-style-type: none;
+    }
 
-  /* ----------------------
-     Print-specific styles
-     ---------------------- */
-  @page { size: A4; margin: 12mm; }
-  @media print {
-    html,body { background: #fff; }
-    .wrap { margin: 0; padding: 0; max-width: 100%; }
-    .card { box-shadow: none; border: none; border-radius: 0; }
-    /* Avoid splitting important blocks across pages */
-    header, .section, .job, .project, .skills, .education-item, .summary, .contact { page-break-inside: avoid; break-inside: avoid; -webkit-column-break-inside: avoid; -webkit-region-break-inside: avoid; }
-    .grid { display:block; }
-    .main, .side { border-right:none; border-bottom:none; padding:14px; }
-    .header { background: #fff !important; color: var(--text) !important; -webkit-print-color-adjust: exact; padding:16px 14px; }
-    .header::before { display:none; }
-    .avatar { background: #111 !important; color:#fff !important; border: none; }
-    .contact a { color: #000; text-decoration: underline; }
-    .section-title { border-bottom: 2px solid #000; color: #000; }
-    .project { background: #fff; border-left: 4px solid #000; }
-    a:after { content: " (" attr(href) ")"; font-size:11px; color:#444; }
-    /* Reduce font-sizes slightly for print to fit content */
-    .name{font-size:22px;}
-    .role{font-size:13px;}
-    .job h3{font-size:14px;}
-  }
+    li {
+      margin-bottom: 8px;
+    }
 
-  /* Accessibility & small tweaks */
-  a { color:var(--accent); }
-  strong { color:var(--text); }
-  .muted { color:var(--muted); font-size:13px; }
-</style>
+    .project {
+      margin-bottom: 10px;
+    }
+
+    .project-title {
+      font-weight: bold;
+      color: #111;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        border-radius: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 20px;
+      }
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+      @page {
+        margin: 1in;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      header h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card" role="article" aria-label="Resume — Ajay Nagotha">
-      <!-- Header -->
-      <header class="header" role="banner">
-        <div class="avatar" aria-hidden="true">AN</div>
-        <div class="title">
-          <h1 class="name">Ajay Nagotha</h1>
-          <div class="role">Frontend Developer — React.js & Next.js Specialist · AI-Powered Web Solutions</div>
-          <div class="contact" aria-label="Contact information">
-            <div>✉ <a href="mailto:ajaynagotha44@gmail.com">ajaynagotha44@gmail.com</a></div>
-            <div>📱 +91 8758756334</div>
-            <div>📍 Surat, Gujarat, India</div>
-            <div>🔗 <a href="https://linkedin.com/in/ajay-nagotha" target="_blank" rel="noopener">LinkedIn</a></div>
-            <div>💻 <a href="https://github.com/ajaynagotha" target="_blank" rel="noopener">GitHub</a></div>
-          </div>
-        </div>
-      </header>
+  <div class="container">
+    <header>
+      <h1>Ajay Nagotha</h1>
+      <h3>Frontend Developer | React.js & Next.js Specialist | AI-Powered Web Solutions</h3>
+      <p>📍 Surat, Gujarat, India | 💼 Remote</p>
+      <p>📧 ajaynagotha@example.com | 🔗 LinkedIn | 💻 GitHub</p>
+    </header>
 
-      <!-- Grid -->
-      <div class="grid">
-        <!-- Main / Left -->
-        <main class="main" role="main">
-          <!-- Summary -->
-          <section class="section" aria-labelledby="summary-title">
-            <h2 id="summary-title" class="section-title">Professional Summary</h2>
-            <p class="summary">
-              Results-driven Frontend Developer with <strong>3.5+ years</strong> of experience building high-performance, accessible, and responsive web applications using <strong>React.js</strong>, <strong>Next.js</strong>, and modern JavaScript. Focused on frontend architecture, component design, performance optimization, and pragmatic AI integration for real-world tooling.
-            </p>
-            <ul class="bullets" aria-hidden="false">
-              <li>Expert in React.js ecosystem, Next.js, client-side performance, and progressive enhancement.</li>
-              <li>Experienced in building production CI/CD pipelines, container-based deployments, and pragmatic cloud workflows.</li>
-              <li>Practical experience integrating AI models to automate testing, SEO suggestions, and UX improvements.</li>
-            </ul>
-          </section>
+    <section>
+      <h2>Professional Summary</h2>
+      <p>
+        Results-driven Frontend Developer with <strong>3.5+ years of experience</strong> building high-performance, responsive web applications using 
+        <strong>React.js, Next.js</strong>, and modern JavaScript frameworks. Skilled in UI/UX implementation, API integration, library integration, 
+        and performance optimization. Passionate about leveraging <strong>AI and automation</strong> to enhance web development workflows and deliver smarter user experiences.
+      </p>
+    </section>
 
-          <!-- Experience -->
-          <section class="section" aria-labelledby="experience-title">
-            <h2 id="experience-title" class="section-title">Professional Experience</h2>
+    <section>
+      <h2>Technical Skills</h2>
+      <ul>
+        <li><strong>Frontend:</strong> React.js, Next.js, Redux, Zustand, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS, Bootstrap</li>
+        <li><strong>Backend:</strong> Node.js, Express.js</li>
+        <li><strong>API & Data:</strong> REST APIs, GraphQL, Axios, Fetch</li>
+        <li><strong>Tools:</strong> Git, GitHub, Docker (Intermediate), Postman, VS Code</li>
+        <li><strong>Others:</strong> WordPress, Responsive Design, SEO Optimization, AI Model Integration</li>
+      </ul>
+    </section>
 
-            <article class="job" aria-labelledby="appscrip">
-              <h3 id="appscrip">Frontend Developer — Appscrip</h3>
-              <div class="job-meta"><span>2021 – Present</span><span>Remote / Surat, India</span></div>
-              <ul class="responsibilities">
-                <li>Developed and optimized multiple React.js and Next.js applications focusing on fast load times and responsive UI.</li>
-                <li>Built reusable, accessible component libraries and collaborated with designers to ensure pixel-perfect UIs.</li>
-                <li>Reduced initial load times by ~30% using code-splitting, lazy loading, and resource optimization.</li>
-                <li>Integrated REST/GraphQL APIs and implemented client-side caching and efficient data-fetching patterns.</li>
-                <li>Deployed production builds using Docker-based pipelines and cloud hosting (Vercel/AWS patterns).</li>
-              </ul>
-            </article>
+    <section>
+      <h2>Professional Experience</h2>
+      <h3>Frontend Developer – Appscrip (Remote)</h3>
+      <p><em>2021 – Present</em></p>
+      <ul>
+        <li>Developed and optimized multiple web applications using React.js and Next.js ensuring responsiveness and high performance.</li>
+        <li>Collaborated with backend teams to integrate RESTful APIs and enhance user experience.</li>
+        <li>Built reusable React components, implemented lazy loading, and reduced initial load times by over 30%.</li>
+        <li>Led UI integration for internal dashboards, improving team productivity and UX consistency.</li>
+        <li>Delivered visually appealing and bug-free deployments while ensuring maintainable code quality.</li>
+      </ul>
+    </section>
 
-            <article class="job" aria-labelledby="krish">
-              <h3 id="krish">React.js Engineer — Krish TechnoLabs</h3>
-              <div class="job-meta"><span>Jan 2022 – Mar 2023</span><span>Ahmedabad, India</span></div>
-              <ul class="responsibilities">
-                <li>Led frontend development for client-facing applications using React.js and Redux.</li>
-                <li>Refactored legacy components into modular systems improving maintainability and development speed.</li>
-                <li>Implemented performance improvements (tree-shaking, bundle analysis) and accessibility fixes.</li>
-              </ul>
-            </article>
+    <section>
+      <h2>Key Projects</h2>
 
-            <article class="job" aria-labelledby="rao">
-              <h3 id="rao">Frontend Developer — Rao Information Technology</h3>
-              <div class="job-meta"><span>Jul 2021 – Jan 2022</span><span>Rajkot, India</span></div>
-              <ul class="responsibilities">
-                <li>Built single-page applications with React.js and integrated REST APIs with robust error handling.</li>
-                <li>Participated in agile ceremonies and improved QA workflows with unit tests (Jest).</li>
-              </ul>
-            </article>
-          </section>
-
-          <!-- Projects -->
-          <section class="section" aria-labelledby="projects-title">
-            <h2 id="projects-title" class="section-title">Selected Projects</h2>
-
-            <div class="project" aria-labelledby="nextgen">
-              <h4 id="nextgen" style="margin:0;font-weight:700;">NextGenWeb.ai — AI-Powered Web Testing & Performance</h4>
-              <div class="tech project-tech">Next.js · React · Puppeteer · Node.js · AI APIs</div>
-              <p class="muted">Built an AI-driven platform that analyzes page HTML, generates automated test cases, and suggests performance/SEO improvements. Implemented test execution and reporting UIs in Next.js with Puppeteer runners.</p>
-            </div>
-
-            <div class="project" aria-labelledby="gita">
-              <h4 id="gita" style="margin:0;font-weight:700;">Bhagavad Gita AI Chatbot</h4>
-              <div class="tech project-tech">Next.js · Tailwind · Hugging Face</div>
-              <p class="muted">Developed a conversational interface using hosted NLP models, supporting text and voice interactions with contextual answers and citation-aware responses.</p>
-            </div>
-
-            <div class="project" aria-labelledby="seo">
-              <h4 id="seo" style="margin:0;font-weight:700;">AI SEO Analyzer Tool</h4>
-              <div class="tech project-tech">Next.js · Puppeteer · OpenAI</div>
-              <p class="muted">Created an SEO auditing tool that fetches live pages and provides prioritized, actionable recommendations using lightweight AI models and heuristics.</p>
-            </div>
-          </section>
-
-          <!-- Education -->
-          <section class="section" aria-labelledby="education-title">
-            <h2 id="education-title" class="section-title">Education</h2>
-            <div class="education-item" style="padding:12px;background:#fbfdff;border-left:3px solid var(--success);border-radius:8px;">
-              <div style="font-weight:700;">B.E. — Computer Engineering</div>
-              <div class="muted">Gujarat Technological University · Graduated 2021</div>
-            </div>
-          </section>
-        </main>
-
-        <!-- Sidebar / Right -->
-        <aside class="side" role="complementary" aria-label="Skills and other info">
-          <section class="section" aria-labelledby="skills-title">
-            <h2 id="skills-title" class="section-title">Core Skills</h2>
-            <div class="skills" role="list">
-              <div class="skill" role="listitem">React.js</div>
-              <div class="skill" role="listitem">Next.js</div>
-              <div class="skill" role="listitem">JavaScript (ES6+)</div>
-              <div class="skill" role="listitem">TypeScript</div>
-              <div class="skill" role="listitem">Redux / State Management</div>
-              <div class="skill" role="listitem">CSS / Tailwind / MUI</div>
-              <div class="skill" role="listitem">Performance Optimization</div>
-              <div class="skill" role="listitem">Testing (Jest)</div>
-              <div class="skill" role="listitem">CI/CD & Docker</div>
-              <div class="skill" role="listitem">REST / GraphQL</div>
-              <div class="skill" role="listitem">SEO & Accessibility</div>
-              <div class="skill" role="listitem">AI Integration (Puppeteer / OpenAI / HF)</div>
-            </div>
-          </section>
-
-          <section class="section" aria-labelledby="opensource-title">
-            <h2 id="opensource-title" class="section-title">Open Source & Community</h2>
-            <p class="muted" style="margin:0;">
-              Contributor to the <strong>A2A Protocol</strong> JavaScript implementation (Google-initiated, Linux Foundation). Active in developer communities and technical blogging on React & Next.js topics.
-            </p>
-          </section>
-
-          <section class="section" aria-labelledby="achieve-title">
-            <h2 id="achieve-title" class="section-title">Achievements</h2>
-            <p class="muted" style="margin:0;">🏆 1st Prize — Smart Gujarat Hackathon (State level)</p>
-          </section>
-
-          <section class="section" aria-labelledby="interests-title">
-            <h2 id="interests-title" class="section-title">Interests</h2>
-            <p class="muted" style="margin:0;">AI in Web Development · UI/UX Innovation · Automation & Tooling · Performance Engineering</p>
-          </section>
-        </aside>
+      <div class="project">
+        <p class="project-title">NextGenWeb.ai – AI-Powered Web Testing Platform</p>
+        <ul>
+          <li>Developed a tool that automates web testing and performance audits using AI and Puppeteer.</li>
+          <li>Built end-to-end Next.js interfaces for test generation, execution, and result analysis.</li>
+          <li>Integrated AI models to analyze HTML, generate test cases, and optimize site performance.</li>
+        </ul>
       </div>
 
-      <div class="footer" role="contentinfo">
-        Available for frontend roles (Remote / Hybrid / Onsite) · Languages: English, Hindi, Gujarati
+      <div class="project">
+        <p class="project-title">Financial Advisor Chatbot – Voice & Text Based AI Assistant</p>
+        <ul>
+          <li>Developed a conversational chatbot using OpenAI APIs with voice and text command support.</li>
+          <li>Integrated speech-to-text and text-to-speech for a smooth user experience.</li>
+          <li>Implemented secure API communication using React and Node.js.</li>
+        </ul>
       </div>
-    </div>
+
+      <div class="project">
+        <p class="project-title">AI SEO Analyzer Tool</p>
+        <ul>
+          <li>Built an intelligent SEO auditing tool using Next.js, Puppeteer, and AI models.</li>
+          <li>Analyzes web pages dynamically and generates optimization suggestions in real time.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <p class="project-title">A2A Protocol – Open Source Contribution</p>
+        <ul>
+          <li>Contributed to an open-source decentralized communication protocol.</li>
+          <li>Improved core JavaScript library performance and fixed implementation-level bugs.</li>
+          <li>Collaborated with developers to enhance API handling and developer documentation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <p><strong>Bachelor of Engineering (Computer Engineering)</strong><br />Gujarat Technological University – 2021</p>
+    </section>
+
+    <section>
+      <h2>Achievements & Highlights</h2>
+      <ul>
+        <li>Built and launched multiple AI-based tools hosted on personal platforms.</li>
+        <li>Active contributor to Stack Overflow (React.js, Redux, Next.js discussions).</li>
+        <li>Creates educational YouTube and blog content about modern web technologies.</li>
+        <li>Experience in mentoring and leading front-end teams effectively.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Interests</h2>
+      <p>AI in Web Development • UI/UX Innovation • Performance Optimization • Automation Tools</p>
+    </section>
   </div>
 </body>
 </html>

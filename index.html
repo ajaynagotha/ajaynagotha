@@ -19,7 +19,6 @@
 --glow:0 0 30px rgba(99,102,241,0.25);
 }
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 
 html,body{
@@ -35,14 +34,12 @@ color:var(--text);
 line-height:1.7;
 }
 
-/* CONTAINER */
 .container{
 max-width:1150px;
 margin:auto;
 padding:20px;
 }
 
-/* HERO */
 .hero{
 padding:110px 20px 80px;
 text-align:center;
@@ -65,7 +62,6 @@ max-width:720px;
 margin-inline:auto;
 }
 
-/* BADGES */
 .badges{
 display:flex;
 flex-wrap:wrap;
@@ -89,7 +85,6 @@ border-color:var(--primary);
 box-shadow:var(--glow);
 }
 
-/* BUTTONS */
 .cta{
 margin-top:30px;
 display:flex;
@@ -114,7 +109,6 @@ box-shadow:0 6px 18px rgba(99,102,241,0.4);
 
 .btn-primary:hover{
 transform:translateY(-3px) scale(1.03);
-box-shadow:0 12px 30px rgba(99,102,241,0.5);
 }
 
 .btn-outline{
@@ -127,7 +121,6 @@ transform:translateY(-3px);
 border-color:var(--primary);
 }
 
-/* SECTION */
 .section{
 margin-top:100px;
 }
@@ -137,7 +130,6 @@ font-size:32px;
 margin-bottom:30px;
 }
 
-/* CARD */
 .card{
 background:var(--card);
 border:1px solid var(--border);
@@ -154,14 +146,12 @@ border-color:var(--primary);
 box-shadow:var(--glow);
 }
 
-/* GRID */
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:20px;
 }
 
-/* LIST */
 ul{
 padding-left:18px;
 margin-top:12px;
@@ -172,21 +162,6 @@ margin-bottom:8px;
 color:var(--muted);
 }
 
-/* CASE */
-.case{
-border-left:3px solid var(--primary);
-padding-left:16px;
-margin-top:20px;
-}
-
-/* DIVIDER */
-.divider{
-height:1px;
-background:var(--border);
-margin:30px 0;
-}
-
-/* SMALL BUTTON */
 .project-actions{
 margin-top:16px;
 }
@@ -198,7 +173,6 @@ border-radius:8px;
 background:linear-gradient(135deg,var(--primary),var(--accent));
 color:white;
 display:inline-block;
-transition:0.3s;
 }
 
 .btn-small:hover{
@@ -206,7 +180,18 @@ transform:translateY(-2px);
 box-shadow:0 8px 20px rgba(99,102,241,0.4);
 }
 
-/* RESPONSIVE */
+.case{
+border-left:3px solid var(--primary);
+padding-left:16px;
+margin-top:20px;
+}
+
+.divider{
+height:1px;
+background:var(--border);
+margin:30px 0;
+}
+
 @media(max-width:900px){
 .grid{grid-template-columns:1fr}
 .hero h1{font-size:34px}
@@ -226,7 +211,6 @@ box-shadow:0 8px 20px rgba(99,102,241,0.4);
 
 <div class="container">
 
-<!-- HERO -->
 <section class="hero">
 <h1>Ajay Nagotha</h1>
 <p>
@@ -249,17 +233,32 @@ Frontend Engineer building fast, scalable, high-performance systems with strong 
 </div>
 </section>
 
-<!-- ABOUT -->
 <section class="section">
 <h2>About</h2>
 <div class="card">
 <p>
-Frontend Engineer with 5+ years of experience specializing in React.js and Next.js. Strong expertise in SSR optimization, caching strategies, Core Web Vitals improvement, and debugging production systems. Experienced in Docker-based deployments, CI/CD automation, client coordination, mentoring developers, and maintaining high engineering quality. I leverage AI tools to significantly boost development productivity and execution speed.
+Frontend Engineer with 5+ years of experience specializing in React.js and Next.js. Strong expertise in SSR optimization, caching strategies, Core Web Vitals improvement, debugging production systems, Docker deployments, CI/CD automation, and delivering reliable systems. Experienced in client coordination, mentoring developers, and maintaining high engineering quality. I leverage AI tools to significantly boost productivity and development speed.
 </p>
 </div>
 </section>
 
-<!-- EXPERIENCE -->
+<section class="section">
+<h2>Open Source Contribution</h2>
+<div class="card">
+<h3>A2A Protocol (Google-Initiated, Linux Foundation Managed)</h3>
+<p>
+Frequent contributor to the a2a-js repository of the A2A (Agent-to-Agent) Protocol—an open standard that enables AI agents to discover capabilities, securely exchange information, and collaborate on complex tasks. Backed by 100+ companies including AWS and Cisco.
+</p>
+<ul>
+<li>Contributed to JavaScript implementation of A2A protocol</li>
+<li>Fixed user-reported issues and improved robustness</li>
+<li>Enhanced developer experience and system reliability</li>
+<li>Worked in large-scale open-source ecosystem</li>
+<li>Focused on improving collaboration standards between AI systems</li>
+</ul>
+</div>
+</section>
+
 <section class="section">
 <h2>Experience</h2>
 
@@ -267,7 +266,7 @@ Frontend Engineer with 5+ years of experience specializing in React.js and Next.
 <h3>React.js Developer – Appscrip</h3>
 <ul>
 <li>Architected scalable React.js / Next.js systems</li>
-<li>Optimized SSR performance, caching, ISR</li>
+<li>Optimized SSR performance, caching, ISR strategies</li>
 <li>Debugged production issues and performance bottlenecks</li>
 <li>Automated CI/CD pipelines using Docker</li>
 <li>Handled direct client communication and delivery</li>
@@ -299,24 +298,22 @@ Frontend Engineer with 5+ years of experience specializing in React.js and Next.
 
 </section>
 
-<!-- CORE STRENGTHS -->
 <section class="section">
 <h2>Core Strengths</h2>
 <div class="card">
 <ul>
 <li>Docker & deployment pipeline automation</li>
-<li>Strong debugging including memory leak fixes</li>
+<li>Advanced debugging including memory leak fixes</li>
 <li>Client meetings & direct coordination</li>
-<li>Mentoring juniors to production-level developers</li>
-<li>Code quality ownership and architecture thinking</li>
-<li>Using AI tools to boost productivity</li>
-<li>Keeping up with modern coding trends</li>
-<li>Managing Jira workflows effectively</li>
+<li>Mentoring junior developers into strong engineers</li>
+<li>Code quality ownership and scalable architecture</li>
+<li>Using AI tools for productivity boost</li>
+<li>Adapting modern coding trends</li>
+<li>Managing Jira boards and workflows</li>
 </ul>
 </div>
 </section>
 
-<!-- CASE STUDIES -->
 <section class="section">
 <h2>Case Studies</h2>
 <div class="card">
@@ -345,7 +342,6 @@ Frontend Engineer with 5+ years of experience specializing in React.js and Next.
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section class="section">
 <h2>Projects</h2>
 
@@ -407,24 +403,20 @@ Frontend Engineer with 5+ years of experience specializing in React.js and Next.
 </div>
 </section>
 
-<!-- AWARDS -->
 <section class="section">
 <h2>Awards & Achievements</h2>
 <div class="card">
 <p><b>1st Prize — State Level Hackathon (Smart Gujarat for New India Hackathon)</b></p>
-<p>Issued by SSIP</p>
-<p>
-Played a key role as a React.js developer, handling frontend development and API integrations.
-</p>
+<p>Issued by Student Startup and Innovation Policy (SSIP)</p>
+<p>Worked as React.js developer handling frontend and API integrations.</p>
 </div>
 </section>
 
-<!-- EDUCATION -->
 <section class="section">
 <h2>Education</h2>
 <div class="card">
-Bachelor of Engineering — Computer Engineering<br>
-Gujarat Technological University
+<p>Bachelor of Engineering — Computer Engineering</p>
+<p>Gujarat Technological University</p>
 </div>
 </section>
 

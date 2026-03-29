@@ -10,23 +10,22 @@
 <style>
 :root{
 --bg:#020617;
---card:rgba(255,255,255,0.05);
+--card:rgba(255,255,255,0.06);
 --primary:#6366f1;
 --accent:#22d3ee;
 --text:#e5e7eb;
 --muted:#94a3b8;
 --border:rgba(255,255,255,0.08);
+--glow:0 0 30px rgba(99,102,241,0.25);
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
 
-html, body{
+html,body{
 width:100%;
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
 body{
@@ -45,18 +44,21 @@ padding:20px;
 
 /* HERO */
 .hero{
-padding:90px 20px 60px;
+padding:110px 20px 80px;
 text-align:center;
 }
 
 .hero h1{
-font-size:46px;
+font-size:50px;
 font-weight:700;
 letter-spacing:-1px;
+background:linear-gradient(90deg,#fff,#aaa);
+-webkit-background-clip:text;
+color:transparent;
 }
 
 .hero p{
-margin-top:16px;
+margin-top:18px;
 color:var(--muted);
 font-size:18px;
 max-width:720px;
@@ -68,22 +70,23 @@ margin-inline:auto;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:10px;
+gap:12px;
 margin-top:25px;
 }
 
 .badge{
-padding:8px 14px;
+padding:8px 16px;
 border-radius:999px;
 background:var(--card);
 border:1px solid var(--border);
 font-size:13px;
-transition:all 0.3s ease;
+transition:0.3s;
 }
 
 .badge:hover{
 transform:translateY(-4px);
 border-color:var(--primary);
+box-shadow:var(--glow);
 }
 
 /* BUTTONS */
@@ -91,7 +94,7 @@ border-color:var(--primary);
 margin-top:30px;
 display:flex;
 justify-content:center;
-gap:12px;
+gap:14px;
 flex-wrap:wrap;
 }
 
@@ -100,19 +103,18 @@ padding:12px 22px;
 border-radius:10px;
 text-decoration:none;
 font-size:14px;
-transition:all 0.3s ease;
-display:inline-block;
+transition:0.3s;
 }
 
 .btn-primary{
 background:linear-gradient(135deg,var(--primary),var(--accent));
 color:#fff;
-box-shadow:0 5px 15px rgba(99,102,241,0.3);
+box-shadow:0 6px 18px rgba(99,102,241,0.4);
 }
 
 .btn-primary:hover{
 transform:translateY(-3px) scale(1.03);
-box-shadow:0 10px 25px rgba(99,102,241,0.5);
+box-shadow:0 12px 30px rgba(99,102,241,0.5);
 }
 
 .btn-outline{
@@ -127,41 +129,42 @@ border-color:var(--primary);
 
 /* SECTION */
 .section{
-margin-top:80px;
+margin-top:100px;
 }
 
 .section h2{
-font-size:28px;
-margin-bottom:25px;
+font-size:32px;
+margin-bottom:30px;
 }
 
 /* CARD */
 .card{
 background:var(--card);
 border:1px solid var(--border);
-padding:26px;
-border-radius:16px;
-margin-bottom:18px;
-backdrop-filter:blur(10px);
-transition:all 0.3s ease;
+padding:30px;
+border-radius:20px;
+margin-bottom:22px;
+transition:0.35s;
+backdrop-filter:blur(14px);
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px);
 border-color:var(--primary);
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+box-shadow:var(--glow);
 }
 
 /* GRID */
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:18px;
+gap:20px;
 }
 
 /* LIST */
 ul{
 padding-left:18px;
+margin-top:12px;
 }
 
 li{
@@ -172,8 +175,12 @@ color:var(--muted);
 /* CASE */
 .case{
 border-left:3px solid var(--primary);
-padding-left:14px;
-margin-top:16px;
+padding-left:16px;
+margin-top:20px;
+}
+
+.case p{
+margin-top:6px;
 }
 
 /* DIVIDER */
@@ -183,41 +190,38 @@ background:var(--border);
 margin:30px 0;
 }
 
+/* PROJECT BUTTON */
+.project-actions{
+margin-top:16px;
+}
+
+.btn-small{
+padding:8px 14px;
+font-size:13px;
+border-radius:8px;
+background:linear-gradient(135deg,var(--primary),var(--accent));
+color:white;
+display:inline-block;
+transition:0.3s;
+}
+
+.btn-small:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(99,102,241,0.4);
+}
+
 /* RESPONSIVE */
 @media(max-width:900px){
-.grid{
-grid-template-columns:1fr;
-}
-
-.hero h1{
-font-size:32px;
-}
-
-.hero p{
-font-size:16px;
-}
+.grid{grid-template-columns:1fr}
+.hero h1{font-size:34px}
+.hero p{font-size:16px}
 }
 
 @media(max-width:600px){
-.container{
-padding:15px;
-}
-
-.hero{
-padding:70px 10px 40px;
-}
-
-.section{
-margin-top:60px;
-}
-
-.section h2{
-font-size:22px;
-}
-
-.card{
-padding:20px;
-}
+.container{padding:15px}
+.hero{padding:70px 10px}
+.section{margin-top:60px}
+.card{padding:20px}
 }
 </style>
 </head>
@@ -230,15 +234,15 @@ padding:20px;
 <section class="hero">
 <h1>Ajay Nagotha</h1>
 <p>
-Frontend Engineer building high-performance, scalable systems with strong ownership, production reliability, and execution efficiency.
+Frontend Engineer building scalable, high-performance web systems with strong ownership and production reliability.
 </p>
 
 <div class="badges">
-<div class="badge">5+ Years Experience</div>
+<div class="badge">5+ Years</div>
 <div class="badge">React / Next.js</div>
 <div class="badge">SSR & Performance</div>
-<div class="badge">CI/CD & Docker</div>
-<div class="badge">Production Debugging</div>
+<div class="badge">Docker & CI/CD</div>
+<div class="badge">Debugging</div>
 <div class="badge">AI Productivity</div>
 </div>
 
@@ -254,7 +258,7 @@ Frontend Engineer building high-performance, scalable systems with strong owners
 <h2>About</h2>
 <div class="card">
 <p>
-I build fast, scalable web platforms focused on performance, clean architecture, and strong user experience. I specialize in React.js and Next.js, working on SSR optimization, caching strategies, and Core Web Vitals improvements. I handle production debugging, performance bottlenecks, and deliver reliable systems with ownership. I actively leverage AI tools to improve development speed and execution efficiency while maintaining high engineering quality.
+Frontend Engineer with 5+ years experience building scalable web platforms using React.js and Next.js. Specialized in SSR optimization, caching strategies, Core Web Vitals improvement, production debugging, and system reliability. Strong focus on ownership, performance, and delivering high-quality features.
 </p>
 </div>
 </section>
@@ -264,11 +268,11 @@ I build fast, scalable web platforms focused on performance, clean architecture,
 <h2>How I Think</h2>
 <div class="card">
 <ul>
-<li>Performance is a design decision, not a fix later</li>
-<li>Root-cause debugging over temporary fixes</li>
-<li>Systems should scale, not just features</li>
-<li>Balance speed (AI tools) with engineering quality</li>
-<li>Continuously adapt to modern coding standards</li>
+<li>Performance is a design decision</li>
+<li>Root-cause debugging mindset</li>
+<li>Scalable architecture thinking</li>
+<li>Balance speed with engineering quality</li>
+<li>Continuous improvement mindset</li>
 </ul>
 </div>
 </section>
@@ -281,65 +285,27 @@ I build fast, scalable web platforms focused on performance, clean architecture,
 <div class="case">
 <h3>Landing Page Performance Optimization</h3>
 <p><b>Problem:</b> Slow loading pages.</p>
-<p><b>Approach:</b> SSR, ISR, SSG, caching, prefetching, partial rendering.</p>
-<p><b>Result:</b> ~2s load time and improved UX.</p>
+<p><b>Approach:</b> Applied SSR, ISR, SSG, caching, prefetching, partial rendering.</p>
+<p><b>Result:</b> Achieved ~2s load time.</p>
 </div>
 
 <div class="divider"></div>
 
 <div class="case">
 <h3>Frontend Architecture & System Design</h3>
-<p><b>Approach:</b> Built scalable Next.js architecture, auth system, reusable components, CI/CD pipelines.</p>
-<p><b>Result:</b> Stable and maintainable system with strong team alignment.</p>
+<p><b>Approach:</b> Designed scalable Next.js architecture, reusable components, auth system, CI/CD pipelines.</p>
+<p><b>Result:</b> Maintainable and scalable system.</p>
 </div>
 
 <div class="divider"></div>
 
 <div class="case">
 <h3>Memory Leak Debugging</h3>
-<p><b>Approach:</b> Analyzed Node.js memory behavior, traced leaks, fixed retention issues.</p>
-<p><b>Result:</b> Improved stability and prevented crashes.</p>
+<p><b>Approach:</b> Debugged Node.js memory leaks and fixed retention issues.</p>
+<p><b>Result:</b> Improved stability.</p>
 </div>
 
 </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="section">
-<h2>Experience</h2>
-
-<div class="card">
-<h3>React.js Developer – Appscrip</h3>
-<ul>
-<li>Architected scalable React.js / Next.js systems</li>
-<li>Optimized SSR and performance strategies</li>
-<li>Debugged production issues and bottlenecks</li>
-<li>Automated CI/CD pipelines using Docker</li>
-<li>Handled client coordination and delivery</li>
-<li>Mentored juniors and ensured code quality</li>
-<li>Managed Jira workflows</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Jr. Software Engineer – Krish TechnoLabs</h3>
-<ul>
-<li>Developed frontend systems using React.js and Redux</li>
-<li>Integrated GraphQL, Firebase, WebSocket APIs</li>
-<li>Handled integrations and workflows</li>
-<li>Worked in Agile environment</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Software Development Engineer – Rao IT</h3>
-<ul>
-<li>Worked on MERN stack applications</li>
-<li>Handled frontend/backend integration</li>
-<li>Improved performance and database operations</li>
-</ul>
-</div>
-
 </section>
 
 <!-- PROJECTS -->
@@ -350,45 +316,61 @@ I build fast, scalable web platforms focused on performance, clean architecture,
 
 <div class="card">
 <h3>AI Web SEO & Performance Tool</h3>
-<p>AI-driven SEO and performance testing platform.</p>
-<a href="https://nextgenwebai.vercel.app" target="_blank" class="btn btn-primary">Live Demo</a>
+<p>AI-based SEO and performance analysis platform.</p>
+<ul>
+<li>Built using Next.js architecture</li>
+<li>SEO analysis and scoring system</li>
+<li>Performance insights engine</li>
+<li>AI-based recommendations</li>
+<li>Core Web Vitals optimization</li>
+</ul>
+<div class="project-actions">
+<a href="https://nextgenwebai.vercel.app" target="_blank" class="btn-small">Live Demo</a>
+</div>
 </div>
 
 <div class="card">
 <h3>Bhagavad Gita AI Chatbot</h3>
-<p>AI chatbot providing contextual answers.</p>
-<a href="https://gita-ai-six.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+<p>AI chatbot with contextual responses.</p>
+<ul>
+<li>Conversational UI design</li>
+<li>AI integration</li>
+<li>Context-based answers</li>
+<li>Optimized UX</li>
+<li>Real-time interaction</li>
+</ul>
+<div class="project-actions">
+<a href="https://gita-ai-six.vercel.app/" target="_blank" class="btn-small">Live Demo</a>
+</div>
 </div>
 
 <div class="card">
-<h3>Social Media Platform</h3>
-<p>Real-time content, streaming, and monetization platform.</p>
-<a href="https://bombshell.fans/" target="_blank" class="btn btn-primary">Live Demo</a>
+<h3>Social Platform</h3>
+<p>Real-time platform with monetization.</p>
+<ul>
+<li>Real-time chat system</li>
+<li>Streaming features</li>
+<li>Scalable frontend architecture</li>
+<li>Performance optimization</li>
+<li>Monetization system</li>
+</ul>
+<div class="project-actions">
+<a href="https://bombshell.fans/" target="_blank" class="btn-small">Live Demo</a>
+</div>
 </div>
 
 <div class="card">
 <h3>E-commerce Platform</h3>
-<p>Scalable marketplace frontend system.</p>
+<p>Marketplace frontend system.</p>
+<ul>
+<li>Reusable component system</li>
+<li>Search optimization</li>
+<li>API integration</li>
+<li>Responsive UI</li>
+<li>Transaction flow</li>
+</ul>
 </div>
 
-</div>
-
-</section>
-
-<!-- SKILLS -->
-<section class="section">
-<h2>Tech Stack</h2>
-<div class="card">
-React.js • Next.js • JavaScript • TypeScript • Node.js • Docker • GraphQL • Redux • AWS • CI/CD • Firebase • WebSocket
-</div>
-</section>
-
-<!-- EDUCATION -->
-<section class="section">
-<h2>Education</h2>
-<div class="card">
-Bachelor of Engineering — Computer Engineering<br>
-Gujarat Technological University
 </div>
 </section>
 

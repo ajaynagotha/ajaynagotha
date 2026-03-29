@@ -1,981 +1,398 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ajay Nagotha – Professional Resume</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    
-    :root{
-      --primary:#2563eb;
-      --primary-dark:#1e40af;
-      --accent:#0ea5e9;
-      --text-primary:#0f172a;
-      --text-secondary:#475569;
-      --text-muted:#64748b;
-      --bg-main:#f8fafc;
-      --bg-card:#ffffff;
-      --bg-secondary:#f1f5f9;
-      --border:#e2e8f0;
-      --success:#10b981;
-      --gradient-1:#6366f1;
-      --gradient-2:#8b5cf6;
-    }
-    
-    * { box-sizing: border-box; }
-    
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      color: var(--text-primary);
-      background: var(--bg-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-    
-    .resume-card {
-      background: var(--bg-card);
-      border-radius: 16px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 12px 24px rgba(0,0,0,0.05);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    
-    /* Header Section */
-    .header {
-      background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 100%);
-      padding: 48px 40px;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 300px;
-      height: 300px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
-      transform: translate(30%, -30%);
-    }
-    
-    .header-content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    
-    .avatar-wrapper {
-      flex-shrink: 0;
-    }
-    
-    .avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
-      backdrop-filter: blur(10px);
-      border: 3px solid rgba(255,255,255,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      font-weight: 700;
-      color: white;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    }
-    
-    .header-info {
-      flex: 1;
-    }
-    
-    .name {
-      font-size: 36px;
-      font-weight: 700;
-      margin: 0 0 8px 0;
-      letter-spacing: -0.5px;
-    }
-    
-    .tagline {
-      font-size: 18px;
-      margin: 0 0 20px 0;
-      opacity: 0.95;
-      font-weight: 500;
-    }
-    
-    .contact-info {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-    
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .contact-item a {
-      color: white;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-      transition: border-color 0.2s;
-    }
-    
-    .contact-item a:hover {
-      border-color: white;
-    }
-    
-    /* Main Content Grid */
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 0;
-    }
-    
-    .main-content {
-      padding: 40px;
-      border-right: 1px solid var(--border);
-    }
-    
-    .sidebar {
-      background: linear-gradient(180deg, #fafbff 0%, #f8fafc 100%);
-      padding: 40px 32px;
-    }
-    
-    /* Section Styles */
-    .section {
-      margin-bottom: 36px;
-    }
-    
-    .section:last-child {
-      margin-bottom: 0;
-    }
-    
-    .section-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin: 0 0 20px 0;
-      padding-bottom: 12px;
-      border-bottom: 3px solid var(--primary);
-      display: inline-block;
-      letter-spacing: -0.3px;
-    }
-    
-    .sidebar .section-title {
-      font-size: 16px;
-      border-bottom: 2px solid var(--primary);
-      margin-bottom: 16px;
-    }
-    
-    /* Summary */
-    .summary-text {
-      color: var(--text-secondary);
-      font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-    
-    .summary-highlights {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .summary-highlights li {
-      color: var(--text-secondary);
-      font-size: 14px;
-      padding-left: 24px;
-      position: relative;
-      margin-bottom: 8px;
-    }
-    
-    .summary-highlights li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: 700;
-    }
-    
-    /* Experience */
-    .job {
-      margin-bottom: 28px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .job:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    
-    .job-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin: 0 0 6px 0;
-    }
-    
-    .job-meta {
-      display: flex;
-      gap: 12px;
-      color: var(--text-muted);
-      font-size: 14px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-    
-    .job-meta span {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    
-    .job-responsibilities {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .job-responsibilities li {
-      color: var(--text-secondary);
-      font-size: 14px;
-      padding-left: 20px;
-      position: relative;
-      margin-bottom: 8px;
-      line-height: 1.6;
-    }
-    
-    .job-responsibilities li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 18px;
-    }
-    
-    /* Projects */
-    .project {
-      margin-bottom: 24px;
-      padding: 20px;
-      background: var(--bg-secondary);
-      border-radius: 12px;
-      border-left: 4px solid var(--primary);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    
-    .project:hover {
-      transform: translateX(4px);
-      box-shadow: 0 4px 12px rgba(37,99,235,0.1);
-    }
-    
-    .project:last-child {
-      margin-bottom: 0;
-    }
-    
-    .project-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin: 0 0 8px 0;
-    }
-    
-    .project-tech {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-    
-    .project-link-wrapper {
-      margin-bottom: 10px;
-    }
-    
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--primary);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    
-    .project-link:hover {
-      color: var(--primary-dark);
-    }
-    
-    .project-description {
-      color: var(--text-secondary);
-      font-size: 14px;
-      line-height: 1.6;
-      margin: 0;
-    }
-    
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-    }
-    
-    .skill-item {
-      background: white;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 13px;
-      color: var(--text-primary);
-      font-weight: 500;
-      border: 1px solid var(--border);
-      transition: all 0.2s;
-    }
-    
-    .skill-item:hover {
-      border-color: var(--primary);
-      background: var(--bg-secondary);
-      transform: translateY(-2px);
-    }
-    
-    .skill-level {
-      font-size: 11px;
-      color: var(--text-muted);
-      font-weight: 400;
-      margin-left: 4px;
-    }
-    
-    /* Awards & Certifications */
-    .award-item, .cert-item {
-      margin-bottom: 16px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .award-item:last-child, .cert-item:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-    
-    .award-title, .cert-title {
-      font-weight: 600;
-      color: var(--text-primary);
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-    
-    .award-description {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
-    
-    /* Education */
-    .education-item {
-      padding: 16px;
-      background: var(--bg-secondary);
-      border-radius: 8px;
-      border-left: 3px solid var(--success);
-    }
-    
-    .degree {
-      font-weight: 600;
-      color: var(--text-primary);
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-    
-    .university {
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-    
-    /* Footer */
-    .footer {
-      background: linear-gradient(90deg, var(--bg-secondary) 0%, var(--bg-main) 100%);
-      padding: 24px 40px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    
-    .footer-text {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 900px) {
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .main-content {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-      }
-      
-      .header-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .contact-info {
-        justify-content: center;
-      }
-      
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    @media (max-width: 600px) {
-      .container {
-        margin: 20px auto;
-        padding: 10px;
-      }
-      
-      .header {
-        padding: 32px 24px;
-      }
-      
-      .name {
-        font-size: 28px;
-      }
-      
-      .tagline {
-        font-size: 16px;
-      }
-      
-      .main-content, .sidebar {
-        padding: 24px 20px;
-      }
-      
-      .footer {
-        padding: 20px;
-      }
-    }
-    
-    /* Print Styles */
-    @media print {
-      body {
-        background: white;
-        font-size: 11pt;
-        line-height: 1.4;
-      }
-      
-      .container {
-        margin: 0;
-        padding: 0;
-        max-width: 100%;
-      }
-      
-      .resume-card {
-        box-shadow: none;
-        border: none;
-        border-radius: 0;
-      }
-      
-      .header {
-        padding: 20px 24px;
-        break-after: avoid;
-        page-break-after: avoid;
-        background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%) !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        color-adjust: exact;
-      }
-      
-      .header::before {
-        display: none;
-      }
-      
-      .avatar {
-        width: 70px;
-        height: 70px;
-        font-size: 28px;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      
-      .name {
-        font-size: 28pt;
-        margin-bottom: 4px;
-      }
-      
-      .tagline {
-        font-size: 13pt;
-        margin-bottom: 12px;
-      }
-      
-      .contact-info {
-        gap: 16px;
-        font-size: 10pt;
-      }
-      
-      .content-grid {
-        grid-template-columns: 1fr 280px;
-        gap: 0;
-      }
-      
-      .main-content {
-        padding: 24px;
-        border-right: 1px solid #e2e8f0;
-      }
-      
-      .sidebar {
-        padding: 24px 20px;
-        background: #f8fafc !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      
-      .section {
-        break-inside: avoid;
-        page-break-inside: avoid;
-        margin-bottom: 20px;
-      }
-      
-      .section-title {
-        font-size: 14pt;
-        margin-bottom: 12px;
-        padding-bottom: 6px;
-        border-bottom: 2px solid #2563eb;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      
-      .sidebar .section-title {
-        font-size: 12pt;
-      }
-      
-      .summary-text {
-        font-size: 10pt;
-        line-height: 1.5;
-        margin-bottom: 10px;
-      }
-      
-      .summary-highlights li,
-      .job-responsibilities li {
-        font-size: 10pt;
-        line-height: 1.4;
-        margin-bottom: 4px;
-      }
-      
-      .job {
-        margin-bottom: 16px;
-        padding-bottom: 16px;
-        break-inside: avoid;
-        page-break-inside: avoid;
-      }
-      
-      .job-title {
-        font-size: 12pt;
-        margin-bottom: 4px;
-      }
-      
-      .job-meta {
-        font-size: 9pt;
-        margin-bottom: 8px;
-      }
-      
-      .project {
-        margin-bottom: 14px;
-        padding: 12px;
-        background: #f1f5f9 !important;
-        border-left: 3px solid #2563eb;
-        break-inside: avoid;
-        page-break-inside: avoid;
-        transform: none !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      
-      .project:hover {
-        transform: none;
-        box-shadow: none;
-      }
-      
-      .project-title {
-        font-size: 11pt;
-        margin-bottom: 4px;
-      }
-      
-      .project-tech {
-        font-size: 9pt;
-        margin-bottom: 6px;
-      }
-      
-      .project-description {
-        font-size: 9pt;
-        line-height: 1.4;
-      }
-      
-      .project-link-wrapper {
-        margin-bottom: 6px;
-      }
-      
-      .project-link {
-        font-size: 9pt;
-        color: #2563eb !important;
-      }
-      
-      .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
-      
-      .skill-item {
-        padding: 6px 10px;
-        font-size: 9pt;
-        background: white !important;
-        border: 1px solid #e2e8f0;
-        transform: none !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      
-      .skill-item:hover {
-        transform: none;
-      }
-      
-      .skill-level {
-        font-size: 8pt;
-      }
-      
-      .award-item, .cert-item {
-        margin-bottom: 10px;
-        padding-bottom: 10px;
-      }
-      
-      .award-title, .cert-title {
-        font-size: 10pt;
-        margin-bottom: 3px;
-      }
-      
-      .award-description {
-        font-size: 9pt;
-        line-height: 1.3;
-      }
-      
-      .education-item {
-        padding: 10px;
-        background: #f1f5f9 !important;
-        border-left: 2px solid #10b981;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      
-      .degree {
-        font-size: 10pt;
-      }
-      
-      .university {
-        font-size: 9pt;
-      }
-      
-      .footer {
-        padding: 16px 24px;
-        background: #f8fafc !important;
-        border-top: 1px solid #e2e8f0;
-        break-inside: avoid;
-        page-break-inside: avoid;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      
-      .footer-text {
-        font-size: 9pt;
-      }
-      
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      
-      a[href]:after {
-        content: none;
-      }
-      
-      /* Ensure colors print correctly */
-      * {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        color-adjust: exact;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajay Nagotha | Frontend Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#020617;
+--card:rgba(255,255,255,0.05);
+--primary:#6366f1;
+--accent:#22d3ee;
+--text:#e5e7eb;
+--muted:#94a3b8;
+--border:rgba(255,255,255,0.08);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html, body{
+width:100%;
+overflow-x:hidden;
+}
+
+body{
+font-family:Inter,sans-serif;
+background:radial-gradient(circle at top,#111827,#020617);
+color:var(--text);
+line-height:1.7;
+}
+
+/* CONTAINER */
+.container{
+max-width:1150px;
+margin:auto;
+padding:20px;
+}
+
+/* HERO */
+.hero{
+padding:90px 20px 60px;
+text-align:center;
+}
+
+.hero h1{
+font-size:46px;
+font-weight:700;
+letter-spacing:-1px;
+}
+
+.hero p{
+margin-top:16px;
+color:var(--muted);
+font-size:18px;
+max-width:720px;
+margin-inline:auto;
+}
+
+/* BADGES */
+.badges{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+margin-top:25px;
+}
+
+.badge{
+padding:8px 14px;
+border-radius:999px;
+background:var(--card);
+border:1px solid var(--border);
+font-size:13px;
+transition:all 0.3s ease;
+}
+
+.badge:hover{
+transform:translateY(-4px);
+border-color:var(--primary);
+}
+
+/* BUTTONS */
+.cta{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:12px 22px;
+border-radius:10px;
+text-decoration:none;
+font-size:14px;
+transition:all 0.3s ease;
+display:inline-block;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,var(--primary),var(--accent));
+color:#fff;
+box-shadow:0 5px 15px rgba(99,102,241,0.3);
+}
+
+.btn-primary:hover{
+transform:translateY(-3px) scale(1.03);
+box-shadow:0 10px 25px rgba(99,102,241,0.5);
+}
+
+.btn-outline{
+border:1px solid var(--border);
+color:var(--text);
+}
+
+.btn-outline:hover{
+transform:translateY(-3px);
+border-color:var(--primary);
+}
+
+/* SECTION */
+.section{
+margin-top:80px;
+}
+
+.section h2{
+font-size:28px;
+margin-bottom:25px;
+}
+
+/* CARD */
+.card{
+background:var(--card);
+border:1px solid var(--border);
+padding:26px;
+border-radius:16px;
+margin-bottom:18px;
+backdrop-filter:blur(10px);
+transition:all 0.3s ease;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:var(--primary);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+/* LIST */
+ul{
+padding-left:18px;
+}
+
+li{
+margin-bottom:8px;
+color:var(--muted);
+}
+
+/* CASE */
+.case{
+border-left:3px solid var(--primary);
+padding-left:14px;
+margin-top:16px;
+}
+
+/* DIVIDER */
+.divider{
+height:1px;
+background:var(--border);
+margin:30px 0;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero p{
+font-size:16px;
+}
+}
+
+@media(max-width:600px){
+.container{
+padding:15px;
+}
+
+.hero{
+padding:70px 10px 40px;
+}
+
+.section{
+margin-top:60px;
+}
+
+.section h2{
+font-size:22px;
+}
+
+.card{
+padding:20px;
+}
+}
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="resume-card">
-      <!-- Header -->
-      <header class="header">
-        <div class="header-content">
-          <div class="avatar-wrapper">
-            <div class="avatar">AN</div>
-          </div>
-          <div class="header-info">
-            <h1 class="name">AJAY NAGOTHA</h1>
-            <p class="tagline">Full-Stack Developer | React.js Specialist | AI Integration Expert</p>
-            <div class="contact-info">
-              <div class="contact-item">
-                <span>✉</span>
-                <a href="mailto:ajaynagotha44@gmail.com">ajaynagotha44@gmail.com</a>
-              </div>
-              <div class="contact-item">
-                <span>📱</span>
-                <span>+91 8758756334</span>
-              </div>
-              <div class="contact-item">
-                <span>📍</span>
-                <span>Surat, Gujarat, India</span>
-              </div>
-              <div class="contact-item">
-                <a href="https://linkedin.com/in/ajay-nagotha" target="_blank">LinkedIn</a>
-              </div>
-              <div class="contact-item">
-                <a href="https://github.com/ajaynagotha" target="_blank">GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
 
-      <!-- Content Grid -->
-      <div class="content-grid">
-        <!-- Main Content -->
-        <main class="main-content">
-          <!-- Professional Summary -->
-          <section class="section">
-            <h2 class="section-title">Professional Summary</h2>
-            <p class="summary-text">
-              Full-Stack Software Engineer with 4+ years of experience building scalable web applications and leading frontend development teams. Specialized in React.js ecosystem, cloud infrastructure (AWS), and AI integration. Proven track record of optimizing application performance (40% improvement in Core Web Vitals), implementing CI/CD pipelines, and contributing to open-source projects under Linux Foundation.
-            </p>
-            <ul class="summary-highlights">
-              <li>Led frontend teams of 6-7 developers; mentored junior engineers and conducted code reviews</li>
-              <li>Expert in React.js, Next.js, TypeScript, Node.js, Docker, GraphQL, and modern DevOps practices</li>
-              <li>Active contributor to A2A Protocol (Google-initiated, Linux Foundation managed open-source project)</li>
-              <li>Delivered enterprise-grade e-commerce, social media platforms, and AI-powered web applications</li>
-              <li>Won 1st prize at State Level Smart Gujarat Hackathon for technical innovation and leadership</li>
-            </ul>
-          </section>
+<div class="container">
 
-          <!-- Professional Experience -->
-          <section class="section">
-            <h2 class="section-title">Professional Experience</h2>
-            
-            <article class="job">
-              <h3 class="job-title">React.js Developer – Appscrip</h3>
-              <div class="job-meta">
-                <span>📍 Surat, Gujarat</span>
-                <span>📅 April 2023 - Present</span>
-              </div>
-              <ul class="job-responsibilities">
-                <li>Architected responsive, high-performance frontend applications using React.js, Material UI, and Bootstrap; served 100K+ users with 99.9% uptime</li>
-                <li>Optimized application performance achieving 40% improvement in Core Web Vitals (LCP, FID, CLS) through code splitting, lazy loading, and bundle optimization</li>
-                <li>Integrated complex APIs (GraphQL, Firebase, WebSocket) for real-time features and payment gateways; reduced API response time by 35%</li>
-                <li>Managed CI/CD pipelines using Git, GitHub Actions, and AWS (EC2, S3, CloudFront); automated deployments with zero-downtime releases</li>
-                <li>Collaborated with product managers, designers, and backend engineers in Agile environment to deliver features aligned with business KPIs</li>
-              </ul>
-            </article>
+<!-- HERO -->
+<section class="hero">
+<h1>Ajay Nagotha</h1>
+<p>
+Frontend Engineer building high-performance, scalable systems with strong ownership, production reliability, and execution efficiency.
+</p>
 
-            <article class="job">
-              <h3 class="job-title">Jr. Software Engineer - React.js – Krish TechnoLabs</h3>
-              <div class="job-meta">
-                <span>📍 Ahmedabad, Gujarat</span>
-                <span>📅 January 2022 - March 2023</span>
-              </div>
-              <ul class="job-responsibilities">
-                <li>Led frontend development team of 6-7 engineers; conducted code reviews, established coding standards, and mentored 3 junior developers</li>
-                <li>Designed and implemented scalable React.js component architecture with Redux for state management; reduced prop drilling by 60%</li>
-                <li>Collaborated with backend teams to design RESTful API contracts; optimized data fetching strategies reducing network calls by 45%</li>
-                <li>Improved application performance through advanced optimization techniques (code splitting, lazy loading, memoization); reduced bundle size by 30%</li>
-                <li>Implemented comprehensive unit and integration testing using Jest and React Testing Library; achieved 85% code coverage</li>
-              </ul>
-            </article>
+<div class="badges">
+<div class="badge">5+ Years Experience</div>
+<div class="badge">React / Next.js</div>
+<div class="badge">SSR & Performance</div>
+<div class="badge">CI/CD & Docker</div>
+<div class="badge">Production Debugging</div>
+<div class="badge">AI Productivity</div>
+</div>
 
-            <article class="job">
-              <h3 class="job-title">Software Development Engineer - Level 1 – Rao Information Technology</h3>
-              <div class="job-meta">
-                <span>📍 Rajkot, Gujarat</span>
-                <span>📅 July 2021 - January 2022</span>
-              </div>
-              <ul class="job-responsibilities">
-                <li>Developed full-stack features using MERN stack (MongoDB, Express.js, React.js, Node.js)</li>
-                <li>Implemented automated CI/CD pipelines for continuous integration and deployment</li>
-                <li>Participated in agile development processes including sprint planning and daily standups</li>
-              </ul>
-            </article>
+<div class="cta">
+<a href="mailto:ajaynagotha44@gmail.com" class="btn btn-primary">Contact</a>
+<a href="https://linkedin.com/in/ajay-nagotha" target="_blank" class="btn btn-outline">LinkedIn</a>
+<a href="https://github.com/ajaynagotha" target="_blank" class="btn btn-outline">GitHub</a>
+</div>
+</section>
 
-            <article class="job">
-              <h3 class="job-title">Trainee MERN Stack Developer – Novice</h3>
-              <div class="job-meta">
-                <span>📍 Rajkot, Gujarat</span>
-                <span>📅 January 2021 - June 2021</span>
-              </div>
-              <ul class="job-responsibilities">
-                <li>Designed and implemented NoSQL database schemas using MongoDB and Firebase</li>
-                <li>Built responsive frontends using React.js, Vue.js, and React Native for cross-platform applications</li>
-                <li>Developed RESTful APIs using Node.js and Express.js with comprehensive testing coverage</li>
-              </ul>
-            </article>
-          </section>
+<!-- ABOUT -->
+<section class="section">
+<h2>About</h2>
+<div class="card">
+<p>
+I build fast, scalable web platforms focused on performance, clean architecture, and strong user experience. I specialize in React.js and Next.js, working on SSR optimization, caching strategies, and Core Web Vitals improvements. I handle production debugging, performance bottlenecks, and deliver reliable systems with ownership. I actively leverage AI tools to improve development speed and execution efficiency while maintaining high engineering quality.
+</p>
+</div>
+</section>
 
-          <!-- Featured Projects -->
-          <section class="section">
-            <h2 class="section-title">Featured Projects</h2>
-            
-            <article class="project">
-              <h3 class="project-title">A2A Protocol - Open Source Contribution</h3>
-              <div class="project-tech"><strong>Tech Stack:</strong> JavaScript, TypeScript, Node.js</div>
-              <div class="project-link-wrapper">
-                <a href="https://a2a-protocol.org/dev/" target="_blank" class="project-link">
-                  🔗 View Project
-                </a>
-              </div>
-              <p class="project-description">
-                Active contributor to the A2A (Agent-to-Agent) Protocol, an open standard initiated by Google and managed by the Linux Foundation. Made significant contributions to the a2a-js repository, including bug fixes, feature enhancements, and implementation improvements for the JavaScript library.
-              </p>
-            </article>
+<!-- THINKING -->
+<section class="section">
+<h2>How I Think</h2>
+<div class="card">
+<ul>
+<li>Performance is a design decision, not a fix later</li>
+<li>Root-cause debugging over temporary fixes</li>
+<li>Systems should scale, not just features</li>
+<li>Balance speed (AI tools) with engineering quality</li>
+<li>Continuously adapt to modern coding standards</li>
+</ul>
+</div>
+</section>
 
-            <article class="project">
-              <h3 class="project-title">AI-Powered Web Testing & Performance Optimization Tool</h3>
-              <div class="project-tech"><strong>Tech Stack:</strong> Next.js, React.js, TypeScript, Node.js, AI/ML APIs</div>
-              <div class="project-link-wrapper">
-                <a href="https://nextgenwebai.vercel.app/" target="_blank" class="project-link">
-                  🔗 Live Demo
-                </a>
-              </div>
-              <p class="project-description">
-                Developed a comprehensive AI-driven platform for automated test case generation, intelligent UI/UX adaptation, and SEO optimization. Features include real-time performance monitoring, actionable insights dashboard, and machine learning-based recommendations for improving web applications.
-              </p>
-            </article>
+<!-- CASE STUDIES -->
+<section class="section">
+<h2>Case Studies</h2>
+<div class="card">
 
-            <article class="project">
-              <h3 class="project-title">Social Media & Content Monetization Platform</h3>
-              <div class="project-tech"><strong>Tech Stack:</strong> Next.js, Material UI, Redux, LiveKit, REST APIs</div>
-              <p class="project-description">
-                Built a full-featured social media platform with live streaming capabilities, real-time messaging, content monetization, and e-commerce functionality. Implemented real-time video streaming using LiveKit, WebSocket-based chat system, and secure payment integration for content creators to monetize their work.
-              </p>
-            </article>
+<div class="case">
+<h3>Landing Page Performance Optimization</h3>
+<p><b>Problem:</b> Slow loading pages.</p>
+<p><b>Approach:</b> SSR, ISR, SSG, caching, prefetching, partial rendering.</p>
+<p><b>Result:</b> ~2s load time and improved UX.</p>
+</div>
 
-            <article class="project">
-              <h3 class="project-title">E-Commerce Marketplace Platform</h3>
-              <div class="project-tech"><strong>Tech Stack:</strong> React.js, GraphQL, SCSS, Material UI, Node.js</div>
-              <p class="project-description">
-                Developed a scalable e-commerce platform similar to Flipkart featuring product catalog management, advanced search and filtering, shopping cart, order tracking, and payment gateway integration. Utilized GraphQL for efficient data fetching and state management with Redux for optimal performance.
-              </p>
-            </article>
+<div class="divider"></div>
 
-            <article class="project">
-              <h3 class="project-title">Bhagavad Gita AI Chatbot</h3>
-              <div class="project-tech"><strong>Tech Stack:</strong> Next.js, Tailwind CSS, Hugging Face APIs</div>
-              <div class="project-link-wrapper">
-                <a href="https://gita-ai-six.vercel.app/" target="_blank" class="project-link">
-                  🔗 Live Demo
-                </a>
-              </div>
-              <p class="project-description">
-                Created an AI-powered conversational interface that provides answers and guidance based on Bhagavad Gita teachings. Integrated pre-trained language models from Hugging Face to deliver contextually relevant responses, making ancient wisdom accessible through modern technology.
-              </p>
-            </article>
-          </section>
+<div class="case">
+<h3>Frontend Architecture & System Design</h3>
+<p><b>Approach:</b> Built scalable Next.js architecture, auth system, reusable components, CI/CD pipelines.</p>
+<p><b>Result:</b> Stable and maintainable system with strong team alignment.</p>
+</div>
 
-          <!-- Education -->
-          <section class="section">
-            <h2 class="section-title">Education</h2>
-            <div class="education-item">
-              <div class="degree">Bachelor of Engineering (B.E.) – Computer Engineering</div>
-              <div class="university">Gujarat Technological University</div>
-            </div>
-          </section>
-        </main>
+<div class="divider"></div>
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
-          <!-- Technical Skills -->
-          <section class="section">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-              <div class="skill-item">React.js <span class="skill-level">Advanced</span></div>
-              <div class="skill-item">Next.js <span class="skill-level">Advanced</span></div>
-              <div class="skill-item">JavaScript <span class="skill-level">Advanced</span></div>
-              <div class="skill-item">TypeScript <span class="skill-level">Intermediate</span></div>
-              <div class="skill-item">Node.js <span class="skill-level">Advanced</span></div>
-              <div class="skill-item">Docker <span class="skill-level">Advanced</span></div>
-              <div class="skill-item">MongoDB</div>
-              <div class="skill-item">Firebase</div>
-              <div class="skill-item">AWS</div>
-              <div class="skill-item">GraphQL</div>
-              <div class="skill-item">Redux</div>
-              <div class="skill-item">Jest / Testing</div>
-              <div class="skill-item">Git / CI/CD</div>
-              <div class="skill-item">REST APIs</div>
-              <div class="skill-item">WebSocket</div>
-              <div class="skill-item">Material UI</div>
-            </div>
-          </section>
+<div class="case">
+<h3>Memory Leak Debugging</h3>
+<p><b>Approach:</b> Analyzed Node.js memory behavior, traced leaks, fixed retention issues.</p>
+<p><b>Result:</b> Improved stability and prevented crashes.</p>
+</div>
 
-          <!-- Awards & Achievements -->
-          <section class="section">
-            <h2 class="section-title">Awards & Recognition</h2>
-            <div class="award-item">
-              <div class="award-title">🏆 1st Prize - Smart Gujarat Hackathon</div>
-              <p class="award-description">
-                Secured 1st place at State Level Hackathon "Smart Gujarat For New India". Led frontend development and API integration for the winning project.
-              </p>
-            </div>
-          </section>
+</div>
+</section>
 
-          <!-- Certifications -->
-          <section class="section">
-            <h2 class="section-title">Certifications</h2>
-            <div class="cert-item">
-              <div class="cert-title">C++/Java Spoken Tutorial</div>
-            </div>
-            <div class="cert-item">
-              <div class="cert-title">Smart Gujarat Hackathon Participation</div>
-            </div>
-          </section>
+<!-- EXPERIENCE -->
+<section class="section">
+<h2>Experience</h2>
 
-          <!-- Open Source -->
-          <section class="section">
-            <h2 class="section-title">Open Source</h2>
-            <p class="award-description">
-              <strong>A2A Protocol Contributor</strong><br>
-              Active contributor to Google-initiated, Linux Foundation managed A2A Protocol JavaScript library. Focus on enhancing implementations and resolving community-reported issues.
-            </p>
-          </section>
-        </aside>
-      </div>
+<div class="card">
+<h3>React.js Developer – Appscrip</h3>
+<ul>
+<li>Architected scalable React.js / Next.js systems</li>
+<li>Optimized SSR and performance strategies</li>
+<li>Debugged production issues and bottlenecks</li>
+<li>Automated CI/CD pipelines using Docker</li>
+<li>Handled client coordination and delivery</li>
+<li>Mentored juniors and ensured code quality</li>
+<li>Managed Jira workflows</li>
+</ul>
+</div>
 
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="footer-text">
-          💼 Available for full-time opportunities | 🌐 Languages: English, Hindi, Gujarati
-        </div>
-      </footer>
-    </div>
-  </div>
+<div class="card">
+<h3>Jr. Software Engineer – Krish TechnoLabs</h3>
+<ul>
+<li>Developed frontend systems using React.js and Redux</li>
+<li>Integrated GraphQL, Firebase, WebSocket APIs</li>
+<li>Handled integrations and workflows</li>
+<li>Worked in Agile environment</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Software Development Engineer – Rao IT</h3>
+<ul>
+<li>Worked on MERN stack applications</li>
+<li>Handled frontend/backend integration</li>
+<li>Improved performance and database operations</li>
+</ul>
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+<section class="section">
+<h2>Projects</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>AI Web SEO & Performance Tool</h3>
+<p>AI-driven SEO and performance testing platform.</p>
+<a href="https://nextgenwebai.vercel.app" target="_blank" class="btn btn-primary">Live Demo</a>
+</div>
+
+<div class="card">
+<h3>Bhagavad Gita AI Chatbot</h3>
+<p>AI chatbot providing contextual answers.</p>
+<a href="https://gita-ai-six.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+</div>
+
+<div class="card">
+<h3>Social Media Platform</h3>
+<p>Real-time content, streaming, and monetization platform.</p>
+<a href="https://bombshell.fans/" target="_blank" class="btn btn-primary">Live Demo</a>
+</div>
+
+<div class="card">
+<h3>E-commerce Platform</h3>
+<p>Scalable marketplace frontend system.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+<section class="section">
+<h2>Tech Stack</h2>
+<div class="card">
+React.js • Next.js • JavaScript • TypeScript • Node.js • Docker • GraphQL • Redux • AWS • CI/CD • Firebase • WebSocket
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section">
+<h2>Education</h2>
+<div class="card">
+Bachelor of Engineering — Computer Engineering<br>
+Gujarat Technological University
+</div>
+</section>
+
+</div>
+
 </body>
 </html>
